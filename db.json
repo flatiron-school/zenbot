@@ -1,0 +1,18 @@
+{
+    "users": [
+        
+    ],
+    "channels": [
+        {
+            "id": 1,
+            "content": "What a cute dog!"
+        }
+    ],
+    "userChannels": [
+        {
+            "id": 1,
+            "userId": 1,
+            "channelId": 1
+        }
+    ]
+}

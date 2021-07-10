@@ -1,4 +1,8 @@
 require('dotenv').config({path: __dirname + '/.env'})
+const {JsonDB} = require("node-json-db");
+const { Config } = require("node-json-db/dist/lib/JsonDBConfig")
+
+var db = new JsonDB(new Config("db", true, true, '/'));
 
 const express = require('express')
 const app = express()
@@ -18,10 +22,11 @@ const client = new WebClient(token, {
 app.use('/', slackEvents.expressMiddleware())
 
 slackEvents.on('message', async (event) => {
-    console.log(event)
+    // console.log(event)
     const channel = event.channel
     if(!event.bot_profile){
-        client.chat.postMessage({channel, token, text: "Test recieved!"})
+        db.push("/users[]", {name: "Andy", online: true, id: event.user})
+        // client.chat.postMessage({channel, token, text: "Test recieved!"})
     }
 })
 
