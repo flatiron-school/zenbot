@@ -21,6 +21,12 @@ class User {
         db.push(`/users[${userIndex}]`, this)
     }
 
+    logout(){
+        this.online = false
+        const userIndex = db.getIndex('/users', this.id)
+        db.push(`/users[${userIndex}]`, this)
+    }
+
     static findOrCreate(obj){
         const userIndex = db.getIndex(`/users`, obj.id)
         if(userIndex !== -1){

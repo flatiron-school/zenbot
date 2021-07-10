@@ -1,7 +1,7 @@
 require('dotenv').config({path: __dirname + '/.env'})
 
 const User = require("./models/user")
-
+const Zenbot = require("./models/Zenbot")
 
 const express = require('express')
 const app = express()
@@ -29,7 +29,9 @@ slackEvents.on('message', async (event) => {
     const {id, name} = user.user
     if(!event.bot_profile){
         const user = User.findOrCreate({name, id, online: false})
-        user.login()
+        const zenbot = new Zenbot(event.text, user, client, token, event.channel)
+        zenbot.response() 
+        
     }
 })
 
