@@ -33,6 +33,10 @@ class Zenbot {
         return 'Displays who is currently online.';
       case 'kick':
         return 'Get them out of here!';
+      case 'in':
+        return 'You are now online!';
+      case 'out':
+        return 'You are now offline!';
       default:
         return 'Sorry, Zenbot does not know this command.';
     }
