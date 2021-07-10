@@ -30,7 +30,7 @@ slackEvents.on('message', async (event) => {
     if(!event.bot_profile){
         const user = User.findOrCreate({name, id, online: false})
         const zenbot = new Zenbot(event.text, user, client, token, event.channel)
-        zenbot.response()
+        zenbot.response() 
         
     }
 })

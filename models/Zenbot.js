@@ -5,7 +5,9 @@ class Zenbot {
     // "zenbot who is on?"
     this.string = this.removeZenbotWord(string);
     this.user = user;
-    this.client = client
+    this.client = client;
+    this.token = token;
+    this.channel = channel
   }
 
   isValid(string) {
@@ -41,6 +43,11 @@ class Zenbot {
           return;
         case 'in':
           this.user.login()
+          this.client.chat.postMessage({
+            token: this.token,
+            channel: this.channel,
+            text: `You are now logged in, ${this.user.name}`
+          })
           return;
         case 'out':
           this.user.logout()
