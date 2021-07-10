@@ -1,6 +1,10 @@
 {
     "users": [
-        
+        {
+            "name": "andres.aguilar",
+            "id": "U0277D7LNKW",
+            "online": true
+        }
     ],
     "channels": [
         {
